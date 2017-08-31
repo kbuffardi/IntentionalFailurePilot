@@ -1,5 +1,6 @@
 library(psych)
 setwd("/Users/kevin/Documents/work/Research/Testoscope/IntentionalFailurePilotExperiment-Spring2017/analysis")
+sink("sigcse2018-pilot-analysis.output.txt")
 everything <- read.csv(file="pilot-metadata.csv", header=T, sep=",")
 everything[everything==""] <- NA
 
@@ -79,50 +80,7 @@ shapiro.test(everything$quiz_peer_incorrect_fail)
 wilcox.test(everything$quiz_peer_incorrect_fail[everything$group == "Correct"],
             everything$quiz_peer_incorrect_fail[everything$group == "Buggy"])
 
-
-# everything$quiz_test_fully_true = everything$quiz_peer_correct_pass == 1 & everything$quiz_peer_incorrect_fail == 1
-# everything$quiz_test_trueness = everything$quiz_peer_correct_pass - everything$quiz_peer_incorrect_pass
-# describeBy(everything$quiz_test_trueness, everything$group)
-# shapiro.test(everything$quiz_test_trueness)
-# wilcox.test(everything$quiz_test_trueness[everything$group == "Correct"],
-#             everything$quiz_test_trueness[everything$group == "Buggy"])
-# everything$quiz_test_fail_accuracy = everything$quiz_peer_incorrect_fail - everything$quiz_peer_correct_fail
-# describeBy(everything$quiz_test_fail_accuracy, everything$group)
-# shapiro.test(everything$quiz_test_fail_accuracy)
-# wilcox.test(everything$quiz_test_fail_accuracy[everything$group == "Correct"],
-#             everything$quiz_test_fail_accuracy[everything$group == "Buggy"])
-
-# plot(quiz_peer_correct_pass~quiz_peer_incorrect_fail, data=everything)
-
-# describe(everything$quiz_peer_correct_pass)
-# quantile(everything$quiz_peer_correct_pass, na.rm=TRUE)
-# iqr = IQR(everything$quiz_peer_correct_pass, na.rm=TRUE)
-# upperq = quantile(everything$quiz_peer_correct_pass, na.rm=TRUE)[4]
-# lowerq = quantile(everything$quiz_peer_correct_pass, na.rm=TRUE)[2]
-# upperthresh = iqr * 1.5 + upperq
-# lowerthresh = lowerq - iqr * 1.5
-# 
-# describe(everything$quiz_peer_incorrect_fail)
-# quantile(everything$quiz_peer_incorrect_fail, na.rm=TRUE)
-# iqr = IQR(everything$quiz_peer_incorrect_fail, na.rm=TRUE)
-# upperq = quantile(everything$quiz_peer_incorrect_fail, na.rm=TRUE)[4]
-# lowerq = quantile(everything$quiz_peer_incorrect_fail, na.rm=TRUE)[2]
-# upperthresh = iqr * 1.5 + upperq
-# lowerthresh = lowerq - iqr * 1.5
-
-
-# describe(everything$quiz_peer_incorrect_fail)
-# quantile(everything$quiz_peer_incorrect_fail, na.rm=TRUE)
-# 
-# plot(everything$revised_peer_correct_pass~everything$revised_peer_incorrect_fail, 
-#      main="Exercise Testing Outcomes", ylab="Correct Passed", xlab="Buggy Failed")
-
-
-
-cor.test(everything$revision_peer_correct_pass,everything$revision_peer_incorrect_fail,method="spearman",conf.level = 0.05)
-
-cor.test(everything$quiz_peer_correct_pass,everything$quiz_peer_incorrect_fail,method="spearman",conf.level = 0.05)
-
+cat("\n\n*****DRAWING CHARTS: NEGATIVE FAILEDvPOSITIVE PASSED")
 library(ggplot2); 
 qplot(revised_peer_incorrect_fail,
       revised_peer_correct_pass,
@@ -161,21 +119,14 @@ results <- results[complete.cases(results),]
 
 set.seed(430) #static seeding for clustering
 results.fit = kmeans(results[4:5], 3) #find 3 clusters from peer_correct_pass and peer_incorrect_fail
+results$cluster = results.fit$cluster
 results$cluster[results$cluster==1] = "A"
 results$cluster[results$cluster==2] = "B"
 results$cluster[results$cluster==3] = "C"
 aggregate(results,by=list(results.fit$cluster),FUN=mean)
 aggregate(results,by=list(results.fit$cluster),FUN=sd)
 
-# qplot(peer_incorrect_fail,
-#       peer_correct_pass,
-#       group=cluster, 
-#       data=results,
-#       main="Clustered Testing Outcomes", 
-#       ylab="Correct Passed", 
-#       xlab="Incorrect Failed"
-# ) + theme_bw()
-
+cat("\n\n*****DRAWING CHART: NEGATIVE FAILEDvPOSITIVE PASSED CLUSTERING")
 ggplot(results, aes(peer_incorrect_fail, peer_correct_pass, group=cluster)) +
   ggtitle("Clustered Testing Outcomes") +
   xlab("Negative Failed") +
@@ -188,10 +139,11 @@ ggplot(results, aes(peer_incorrect_fail, peer_correct_pass, group=cluster)) +
 
 describeBy(results$ref_tests_passed,results$cluster)
 shapiro.test(results$ref_tests_passed)
-wilcox.test(results$ref_tests_passed[results$cluster == 1],
-            results$ref_tests_passed[results$cluster == 2])
-wilcox.test(results$ref_tests_passed[results$cluster == 1],
-            results$ref_tests_passed[results$cluster == 3])
-wilcox.test(results$ref_tests_passed[results$cluster == 2],
-            results$ref_tests_passed[results$cluster == 3])
+wilcox.test(results$ref_tests_passed[results$cluster == "A"],
+            results$ref_tests_passed[results$cluster == "B"])
+wilcox.test(results$ref_tests_passed[results$cluster == "A"],
+            results$ref_tests_passed[results$cluster == "C"])
+wilcox.test(results$ref_tests_passed[results$cluster == "B"],
+            results$ref_tests_passed[results$cluster == "C"])
 
+sink()

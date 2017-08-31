@@ -1,0 +1,341 @@
+
+
+*****Initial descriptive infogroup: Buggy
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 18 4.17 2.73      4    4.12 3.71   0   9     9 -0.02    -1.34 0.64
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min max range skew kurtosis  se
+1    1 19 3.37 3.93      2       3 2.97   0  13    13 1.21     0.39 0.9
+group: Buggy
+  vars  n  mean    sd median trimmed   mad min max range  skew kurtosis   se
+1    1 15 20.53 10.68     20   21.08 14.83   0  34    34 -0.23    -1.27 2.76
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean    sd median trimmed   mad min max range skew kurtosis   se
+1    1 14   26 19.28     24   24.17 11.86   0  74    74 1.03     0.59 5.15
+
+FALSE  TRUE 
+   10    30 
+
+
+*****Initial assignment LINE COVERAGEgroup: Buggy
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis   se
+1    1 15 0.63 0.29   0.77    0.65 0.13   0 0.93  0.93 -1.15     0.01 0.08
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis  se
+1    1 14 0.51 0.38   0.64    0.52 0.39   0 0.93  0.93 -0.35     -1.7 0.1
+
+	Shapiro-Wilk normality test
+
+data:  everything$initial_coverage_line
+W = 0.8217, p-value = 0.0002099
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$initial_coverage_line[everything$group == "Correct"] and everything$initial_coverage_line[everything$group == "Buggy"]
+W = 96.5, p-value = 0.7257
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Initial assignment CONDITIONAL COVERAGEgroup: Buggy
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 15 0.51 0.32   0.62    0.51 0.24   0   1     1 -0.41    -1.17 0.08
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis   se
+1    1 14 0.45 0.35   0.56    0.44 0.36   0 0.92  0.92 -0.22    -1.68 0.09
+
+	Shapiro-Wilk normality test
+
+data:  everything$initial_coverage_conditional
+W = 0.8861, p-value = 0.004616
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$initial_coverage_conditional[everything$group == "Correct"] and everything$initial_coverage_conditional[everything$group == "Buggy"]
+W = 95.5, p-value = 0.6922
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Initial assignment REFERENCE SOLUTION CONDITIONAL COVERAGEgroup: Buggy
+  vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+1    1 16 0.24 0.18   0.24    0.24 0.11   0 0.55  0.55 0.31    -0.92 0.04
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min max range skew kurtosis   se
+1    1 14 0.21 0.21   0.18    0.18 0.15   0 0.7   0.7 0.99     0.07 0.06
+
+	Shapiro-Wilk normality test
+
+data:  everything$initial_ref_solution_coverage_conditional
+W = 0.8986, p-value = 0.007784
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$initial_ref_solution_coverage_conditional[everything$group ==  and everything$initial_ref_solution_coverage_conditional[everything$group ==     "Correct"] and     "Buggy"]
+W = 95.5, p-value = 0.5027
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Initial assignment CORRECTNESSgroup: Buggy
+  vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+1    1 16 0.12 0.08   0.11    0.11 0.07   0 0.28  0.28 0.42    -0.87 0.02
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+1    1 14 0.12 0.11   0.09    0.11 0.09 0.03 0.38  0.35 0.99     -0.4 0.03
+
+	Shapiro-Wilk normality test
+
+data:  everything$initial_ref_tests_passed
+W = 0.8954, p-value = 0.006483
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$initial_ref_tests_passed[everything$group == "Correct"] and everything$initial_ref_tests_passed[everything$group == "Buggy"]
+W = 106, p-value = 0.8172
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****REVISED ASSIGNMENT*****
+
+*****Revised assignment LINE COVERAGEgroup: Buggy
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 17 0.77 0.29   0.86    0.81 0.21   0   1     1 -1.25     0.52 0.07
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 14 0.65 0.35   0.74    0.67 0.29   0   1     1 -0.74    -0.97 0.09
+
+	Shapiro-Wilk normality test
+
+data:  everything$revised_coverage_line
+W = 0.8175, p-value = 0.0001107
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$revised_coverage_line[everything$group == "Correct"] and everything$revised_coverage_line[everything$group == "Buggy"]
+W = 89, p-value = 0.2396
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Revised assignment CONDITIONAL COVERAGEgroup: Buggy
+  vars  n mean   sd median trimmed  mad min  max range skew kurtosis   se
+1    1 17 0.59 0.35   0.75     0.6 0.19   0 0.98  0.98 -0.7    -1.21 0.09
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis   se
+1    1 14 0.54 0.31    0.6    0.56 0.36   0 0.91  0.91 -0.41    -1.41 0.08
+
+	Shapiro-Wilk normality test
+
+data:  everything$revised_coverage_conditional
+W = 0.8657, p-value = 0.001113
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$revised_coverage_conditional[everything$group == "Correct"] and everything$revised_coverage_conditional[everything$group == "Buggy"]
+W = 107, p-value = 0.6475
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Revised SOLUTION CORRECTNESSgroup: Buggy
+  vars  n mean   sd median trimmed  mad  min max range  skew kurtosis   se
+1    1 17 0.88 0.12   0.94    0.89 0.09 0.66   1  0.34 -0.65    -1.12 0.03
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad  min max range  skew kurtosis   se
+1    1 13 0.91 0.08   0.94    0.92 0.05 0.72   1  0.28 -1.27     0.55 0.02
+
+	Shapiro-Wilk normality test
+
+data:  everything$revised_ref_tests_passed
+W = 0.8479, p-value = 0.0005596
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$revised_ref_tests_passed[everything$group == "Correct"] and everything$revised_ref_tests_passed[everything$group == "Buggy"]
+W = 113.5, p-value = 0.9156
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Revised TESTING TRUE POSITIVESgroup: Buggy
+  vars  n mean   sd median trimmed mad min max range  skew kurtosis   se
+1    1 17 0.52 0.44    0.8    0.52 0.3   0   1     1 -0.21    -1.88 0.11
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed mad min max range  skew kurtosis   se
+1    1 13 0.72 0.39    0.8    0.76 0.3   0   1     1 -1.02    -0.76 0.11
+
+	Shapiro-Wilk normality test
+
+data:  everything$revised_peer_correct_pass
+W = 0.7524, p-value = 9.959e-06
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$revised_peer_correct_pass[everything$group == "Correct"] and everything$revised_peer_correct_pass[everything$group == "Buggy"]
+W = 144.5, p-value = 0.1433
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****Revised TESTING TRUE NEGATIVESgroup: Buggy
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 17 0.78 0.34   0.96    0.82 0.06   0   1     1 -1.24    -0.18 0.08
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 13 0.63 0.39   0.77    0.66 0.34   0   1     1 -0.48    -1.48 0.11
+
+	Shapiro-Wilk normality test
+
+data:  everything$revised_peer_incorrect_fail
+W = 0.7552, p-value = 1.107e-05
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$revised_peer_incorrect_fail[everything$group == "Correct"] and everything$revised_peer_incorrect_fail[everything$group == "Buggy"]
+W = 83.5, p-value = 0.2585
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****QUIZ TESTING TRUE POSITIVESgroup: Buggy
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis  se
+1    1 16 0.59 0.41   0.77     0.6 0.23   0 0.92  0.92 -0.63    -1.56 0.1
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis  se
+1    1 16 0.64 0.39   0.85    0.66 0.11   0   1     1 -0.91    -1.06 0.1
+
+	Shapiro-Wilk normality test
+
+data:  everything$quiz_peer_correct_pass
+W = 0.7135, p-value = 1.391e-06
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$quiz_peer_correct_pass[everything$group == "Correct"] and everything$quiz_peer_correct_pass[everything$group == "Buggy"]
+W = 137.5, p-value = 0.7264
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****QUIZ TESTING TRUE NEGATIVESgroup: Buggy
+  vars  n mean   sd median trimmed  mad  min max range  skew kurtosis   se
+1    1 16 0.83 0.12   0.84    0.84 0.08 0.58   1  0.42 -0.48    -0.31 0.03
+--------------------------------------------------------------------------- 
+group: Correct
+  vars  n mean   sd median trimmed  mad  min max range  skew kurtosis   se
+1    1 16  0.8 0.22   0.92    0.82 0.12 0.26   1  0.74 -0.93    -0.23 0.05
+
+	Shapiro-Wilk normality test
+
+data:  everything$quiz_peer_incorrect_fail
+W = 0.8733, p-value = 0.001387
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  everything$quiz_peer_incorrect_fail[everything$group == "Correct"] and everything$quiz_peer_incorrect_fail[everything$group == "Buggy"]
+W = 131.5, p-value = 0.9089
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+*****DRAWING CHARTS: NEGATIVE FAILEDvPOSITIVE PASSED
+
+*****REVISION CORRELATION
+	Spearman's rank correlation rho
+
+data:  everything$revised_peer_correct_pass and everything$revised_peer_incorrect_fail
+S = 8324.452, p-value = 2.354e-09
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.8519358 
+
+
+
+*****QUIZ CORRELATION
+	Spearman's rank correlation rho
+
+data:  everything$quiz_peer_correct_pass and everything$quiz_peer_incorrect_fail
+S = 8130.492, p-value = 0.004399
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.4901929 
+
+  Group.1 id group ref_tests_passed peer_correct_pass peer_incorrect_fail assignment cluster
+1       1 NA    NA        0.7269022        0.02510121           0.9558918         NA      NA
+2       2 NA    NA        0.7687747        0.99300699           0.2430990         NA      NA
+3       3 NA    NA        0.9442510        0.82788462           0.8365385         NA      NA
+  Group.1        id     group ref_tests_passed peer_correct_pass peer_incorrect_fail assignment
+1       1  9.598672 0.4955946        0.3141236        0.06409447          0.07111185         NA
+2       2 16.531513 0.5045250        0.2734517        0.02319318          0.19445942         NA
+3       3 10.817399 0.5070073        0.1320697        0.09234387          0.13545833         NA
+  cluster
+1      NA
+2      NA
+3      NA
+
+
+*****DRAWING CHART: NEGATIVE FAILEDvPOSITIVE PASSED CLUSTERINGgroup: A
+  vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
+1    1 19 0.73 0.31   0.83    0.75 0.17   0   1     1 -1.26     0.08 0.07
+--------------------------------------------------------------------------- 
+group: B
+  vars  n mean   sd median trimmed  mad min  max range  skew kurtosis   se
+1    1 11 0.77 0.27   0.91    0.83 0.07   0 0.96  0.96 -1.93     2.74 0.08
+--------------------------------------------------------------------------- 
+group: C
+  vars  n mean   sd median trimmed mad min max range  skew kurtosis   se
+1    1 32 0.94 0.13      1    0.97   0 0.3   1   0.7 -3.73    14.64 0.02
+
+	Shapiro-Wilk normality test
+
+data:  results$ref_tests_passed
+W = 0.6337, p-value = 3.597e-11
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  results$ref_tests_passed[results$cluster == "A"] and results$ref_tests_passed[results$cluster == "B"]
+W = 110.5, p-value = 0.8116
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  results$ref_tests_passed[results$cluster == "A"] and results$ref_tests_passed[results$cluster == "C"]
+W = 86.5, p-value = 1.492e-05
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  results$ref_tests_passed[results$cluster == "B"] and results$ref_tests_passed[results$cluster == "C"]
+W = 38, p-value = 7.563e-05
+alternative hypothesis: true location shift is not equal to 0
+
